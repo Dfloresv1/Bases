@@ -1,39 +1,18 @@
-Conexión exitosa a Oracle (versión cliente thin: 2.4.1)
+>>> 1. Crear
+Puesto creado.
+Puesto creado.
 
->>> Opción 1) Crear puesto
-[OK] Puesto 'IT_DBA' insertado correctamente.
-[OK] Puesto 'IT_QA' insertado correctamente.
+>>> 2. Leer (todos los puestos)
+('IT_DBA', 'Database Administrator', 4000, 11000)
+('IT_QA', 'QA Analyst', 3500, 8000)
 
->>> Opción 2) Consultar todos los puestos
+>>> 3. Actualizar (IT_QA)
+Puesto actualizado.
+('IT_DBA', 'Database Administrator', 4000, 11000)
+('IT_QA', 'QA Senior Analyst', 3500, 8000)
 
-JOB_ID    JOB_TITLE                          MIN_SALARY  MAX_SALARY  
----------------------------------------------------------------------
-IT_DBA    Database Administrator             4000        11000       
-IT_QA     QA Analyst                         3500        8000        
+>>> 4. Eliminar (IT_QA)
+Puesto eliminado.
 
->>> Opción 3) Consultar un puesto por job_id (IT_DBA)
-
-JOB_ID    JOB_TITLE                          MIN_SALARY  MAX_SALARY  
----------------------------------------------------------------------
-IT_DBA    Database Administrator             4000        11000       
-
->>> Opción 4) Actualizar puesto (IT_QA sube su max_salary a 9000)
-[OK] Puesto 'IT_QA' actualizado correctamente.
-
-JOB_ID    JOB_TITLE                          MIN_SALARY  MAX_SALARY  
----------------------------------------------------------------------
-IT_QA     QA Analyst                         3500        9000        
-
->>> Opción 1) Intentar crear un job_id duplicado (control de errores)
-[ERROR] Ya existe un puesto con job_id = 'IT_DBA'.
->>> Opción 5) Eliminar puesto (IT_QA)
-[OK] Puesto 'IT_QA' eliminado correctamente.
->>> Opción 2) Consultar todos los puestos después de eliminar
-
-JOB_ID    JOB_TITLE                          MIN_SALARY  MAX_SALARY  
----------------------------------------------------------------------
-IT_DBA    Database Administrator             4000        11000       
-
->>> Opción 5) Intentar eliminar un job_id que no existe
-[AVISO] No existe ningún puesto con job_id = 'XX_FAKE'.
-Conexión cerrada.
+>>> 2. Leer (después de eliminar)
+('IT_DBA', 'Database Administrator', 4000, 11000)

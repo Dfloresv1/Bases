@@ -12,17 +12,15 @@ proyecto_crud_jobs/
 ├── requirements.txt
 ├── reporte_actividad.pdf     # Documentación del código y de la ejecución
 └── src/
-    ├── crud_jobs.py          # Código fuente de la aplicación
-    └── config.ini.example    # Plantilla de configuración de conexión
+    └── crud_jobs.py          # Código fuente de la aplicación
 ```
 
 ## Requisitos
 
 - Python 3.9 o superior
 - Una cuenta activa en [FreeSQL](https://freesql.com) con el esquema `HR`
-  disponible (o tu propio usuario con permisos sobre una tabla `jobs`)
-- Librería `oracledb` (driver oficial de Oracle para Python, no requiere
-  instalar Oracle Instant Client gracias a su modo "thin")
+  disponible
+- Librería `oracledb`
 
 ## Instalación
 
@@ -34,23 +32,16 @@ pip install -r requirements.txt
 
 ## Configuración de la conexión
 
-1. Copia el archivo de ejemplo:
-   ```bash
-   cp src/config.ini.example src/config.ini
-   ```
-2. Edita `src/config.ini` con tus credenciales:
-   ```ini
-   [database]
-   user = TU_USUARIO
-   password = TU_PASSWORD
-   dsn = TU_DSN_O_CONNECT_STRING
-   ```
-3. El `dsn` se obtiene desde el panel de conexión de FreeSQL, o si tu
-   instancia corre sobre Oracle Autonomous Database, desde **DB Connection
-   > Connection Strings** en la consola de Oracle Cloud.
+Abre `src/crud_jobs.py` y edita estas tres líneas al inicio del archivo con
+tus datos de FreeSQL:
 
-> ⚠️ `config.ini` está en `.gitignore`: nunca subas tus credenciales reales
-> al repositorio. Solo se versiona `config.ini.example`.
+```python
+usuario = "TU_USUARIO"
+password = "TU_PASSWORD"
+dsn = "TU_DSN"
+```
+
+El `dsn` se obtiene desde el panel de conexión de tu Worksheet en FreeSQL.
 
 ## Ejecución
 
@@ -59,19 +50,14 @@ cd src
 python crud_jobs.py
 ```
 
-Verás un menú interactivo:
+Menú disponible:
 
 ```
-==================================================
-   CRUD - Tabla JOBS (Esquema HR - Oracle/FreeSQL)
-==================================================
- 1) Crear puesto (Create)
- 2) Consultar todos los puestos (Read)
- 3) Consultar un puesto por job_id (Read)
- 4) Actualizar puesto (Update)
- 5) Eliminar puesto (Delete)
- 6) Salir
---------------------------------------------------
+1. Crear
+2. Leer
+3. Actualizar
+4. Eliminar
+5. Salir
 ```
 
 ## Estructura de la tabla JOBS
@@ -88,8 +74,8 @@ CREATE TABLE jobs(
 
 ## Documentación completa
 
-Ver `reporte_actividad.pdf` para la explicación detallada del código,
-capturas/ejemplos de ejecución y conclusiones de la actividad.
+Ver `reporte_actividad.pdf` para la explicación del código y ejemplos de
+ejecución.
 
 ## Autor
 
